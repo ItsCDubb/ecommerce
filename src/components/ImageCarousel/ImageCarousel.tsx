@@ -3,7 +3,7 @@ import {FlatList, Image, useWindowDimensions, View} from 'react-native';
 import colors from '../../theme/colors';
 import styles from './styles';
 
-const ImageCarousel = ({images}: {images: [string]}) => {
+const ImageCarousel = ({images}: {images: string[]}) => {
   const windowDimensions = useWindowDimensions().width;
   const [activeIndex, setActiveIndex] = useState(0);
   return (
@@ -31,6 +31,7 @@ const ImageCarousel = ({images}: {images: [string]}) => {
       <View style={styles.dotContainer}>
         {images.map((image, index) => (
           <View
+            key={index}
             style={[
               styles.dot,
               {
